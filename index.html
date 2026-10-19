@@ -135,8 +135,9 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
   <section id="waitlist">
     <h2>Join the waitlist</h2>
     <p class="sub">We are opening the registry to a small first group. Tell us who you are — it decides what we build first.</p>
-    <form id="waitlist-form" onsubmit="event.preventDefault(); document.getElementById('thanks').style.display='block'; this.reset();">
+    <form id="waitlist-form">
       <input type="email" name="email" placeholder="you@example.com" required aria-label="E-mail">
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
       <select name="role" aria-label="I am">
         <option>I sell a strategy, EA or signals</option>
         <option>I run a prop firm or allocate capital</option>
@@ -145,8 +146,36 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
       </select>
       <button class="btn primary" type="submit">Join</button>
     </form>
-    <div id="thanks">Thanks! You are on the list. (Draft page: nothing is sent yet.)</div>
-    <p class="fine">We only use your e-mail to tell you when the registry opens. No newsletter, no sharing. Unsubscribe any time.</p>
+    <div id="thanks">Thanks! You are on the list.</div>
+    <div id="failed" style="display:none;color:var(--bad);font-weight:600;margin-top:10px">That did not go through. Please try again in a minute.</div>
+    <p class="fine">We only use your e-mail to tell you when the registry opens. No newsletter, no sharing. Unsubscribe any time.
+      By joining you agree to our <a href="privacy.html" style="color:inherit">privacy policy</a>.</p>
+    <script>
+    // FormSubmit forwards each sign-up by e-mail. FORM_ENDPOINT is the alias FormSubmit sends after activation.
+    const FORM_ENDPOINT = "https://formsubmit.co/ajax/{{FORM_ALIAS}}";
+    document.getElementById("waitlist-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const form = e.target, button = form.querySelector("button");
+      const data = Object.fromEntries(new FormData(form));
+      if (data._honey) return;
+      button.disabled = true;
+      document.getElementById("failed").style.display = "none";
+      try {
+        const r = await fetch(FORM_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json", "Accept": "application/json" },
+          body: JSON.stringify({ ...data, _subject: "Edge Registry waitlist", _template: "table" }),
+        });
+        if (!r.ok) throw new Error(r.status);
+        document.getElementById("thanks").style.display = "block";
+        form.reset();
+      } catch {
+        document.getElementById("failed").style.display = "block";
+      } finally {
+        button.disabled = false;
+      }
+    });
+    </script>
   </section>
 
   <section id="faq">
@@ -158,8 +187,9 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
   </section>
 
   <footer>
-    Edge Registry · draft · Not financial advice. Trading CFDs and futures involves a high risk of losing money.
-    Past results, verified or not, do not guarantee future results.
+    Edge Registry · Not financial advice. Trading CFDs and futures involves a high risk of losing money.
+    Past results, verified or not, do not guarantee future results.<br>
+    <a href="imprint.html" style="color:inherit">Legal notice</a> · <a href="privacy.html" style="color:inherit">Privacy</a>
   </footer>
 </div>
 </body>
