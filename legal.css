@@ -1,6 +1,0 @@
-:root { --bg: #0d1016; --ink: #edf0f6; --ink-2: #b2b9c9; --accent: #7c8cff; }
-@media (prefers-color-scheme: light) { :root { --bg: #f6f7f9; --ink: #121519; --ink-2: #474e5c; --accent: #4a5bdc; } }
-body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "Segoe UI", system-ui, sans-serif; }
-main { max-width: 720px; margin: 0 auto; padding: 40px 20px 80px; }
-h1 { font-size: 30px; } h2 { font-size: 19px; margin-top: 28px; }
-p { color: var(--ink-2); } a { color: var(--accent); }

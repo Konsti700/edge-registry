@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Edge Registry – proof before profit</title>
-<meta name="description" content="A public registry for trading strategies: rules fixed before the results, tested against random data, judged on real trades – failures included.">
+<title>Edge Registry – a test project</title>
+<meta name="description" content="A test project: an idea for a public registry of trading strategies with rules fixed before the results. No product, no data collection, no profit promise.">
 <style>
 :root {
   --bg: #0d1016; --panel: #151a23; --line: #262d3b; --ink: #edf0f6; --ink-2: #b2b9c9; --muted: #7c8496;
@@ -20,7 +20,9 @@ body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 "Sego
 header { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
 .logo { font-weight: 700; letter-spacing: .2px; } .logo span { color: var(--accent); }
 nav a { color: var(--ink-2); text-decoration: none; margin-left: 22px; font-size: 15px; }
-.hero { padding: 64px 0 40px; }
+.notice { background: var(--panel); border: 1px solid var(--gold); border-radius: 12px; padding: 12px 16px; font-size: 14.5px; color: var(--ink-2); }
+.notice b { color: var(--gold); }
+.hero { padding: 56px 0 40px; }
 .eyebrow { color: var(--accent); font-weight: 600; font-size: 14px; letter-spacing: 1.2px; text-transform: uppercase; }
 h1 { font-size: clamp(34px, 5.5vw, 56px); line-height: 1.08; margin: 12px 0 18px; letter-spacing: -.5px; }
 .lead { font-size: 20px; color: var(--ink-2); max-width: 720px; }
@@ -39,68 +41,69 @@ h2 { font-size: 30px; margin: 0 0 14px; letter-spacing: -.3px; }
 .stat { font-size: 30px; font-weight: 700; } .stat.bad { color: var(--bad); } .stat.good { color: var(--good); }
 .stats { display: grid; gap: 12px; }
 .stats .card p { font-size: 14px; }
-table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.table-scroll { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 15px; min-width: 620px; }
 th, td { text-align: left; padding: 11px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
 th { color: var(--muted); font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: .6px; }
 td.yes { color: var(--good); font-weight: 600; } td.no { color: var(--muted); }
-form { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; }
-input, select { font: inherit; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--line); background: var(--panel); color: var(--ink); min-width: 240px; flex: 1; }
-.fine { color: var(--muted); font-size: 13.5px; margin-top: 10px; }
+.fine { color: var(--muted); font-size: 13.5px; margin-top: 14px; max-width: 760px; }
 details { border-bottom: 1px solid var(--line); padding: 14px 0; } summary { cursor: pointer; font-weight: 600; }
 details p { color: var(--ink-2); margin: 10px 0 0; }
 footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
-#thanks { display: none; color: var(--good); font-weight: 600; margin-top: 10px; }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="logo">Edge<span>Registry</span></div>
-    <nav><a href="#how">How it works</a><a href="#story">Our story</a><a href="#compare">Why not Myfxbook?</a><a href="#waitlist">Waitlist</a></nav>
+    <nav><a href="#how">The idea</a><a href="#story">Our story</a><a href="#compare">Compared</a><a href="#follow">Follow the test</a></nav>
   </header>
 
+  <div class="notice"><b>Test project.</b> This is an idea we are testing, not a product. Nothing is sold, no code is
+    released, this page collects no data, and nothing here promises any profit.</div>
+
   <div class="hero">
-    <div class="eyebrow">Proof before profit</div>
+    <div class="eyebrow">An idea in testing</div>
     <h1>Anyone can show a great backtest.<br>Few can show they fixed the rules first.</h1>
-    <p class="lead">Edge Registry is a public register for trading strategies. You commit to the rules before the
-      results exist. We test the strategy against random data, then judge it on real trades — and the verdict stays
-      public, even when it fails.</p>
-    <div class="cta"><a class="btn primary" href="#waitlist">Join the waitlist</a><a class="btn" href="#story">Read why we built it</a></div>
+    <p class="lead">Edge Registry is an idea for a public register of trading strategies: the rules are fixed before the
+      results exist, the strategy is tested against random data, and it is judged on real trades, with the verdict
+      staying public even when it fails. We are trying it on our own trading bot first.</p>
+    <div class="cta"><a class="btn primary" href="#follow">Follow the test</a><a class="btn" href="#story">Read why</a></div>
   </div>
 
   <section id="problem">
     <h2>The problem with trading track records</h2>
     <p class="sub">Most bots, EAs and signal services look profitable for the same reason: you only see the winners.</p>
     <div class="grid">
-      <div class="card"><h3>Hidden attempts</h3><p>Run fifty accounts, show the best one. Run ten thousand backtests, sell the best one. The buyer never sees the other 9,999.</p></div>
-      <div class="card"><h3>Curve-fitting</h3><p>Tune a strategy long enough and it will fit the past perfectly — including the noise that will never repeat.</p></div>
+      <div class="card"><h3>Hidden attempts</h3><p>Run fifty accounts, show the best one. Run ten thousand backtests, show the best one. Nobody sees the other 9,999.</p></div>
+      <div class="card"><h3>Curve-fitting</h3><p>Tune a strategy long enough and it will fit the past perfectly, including the noise that will never repeat.</p></div>
       <div class="card"><h3>Moving goalposts</h3><p>“It needs more time”, “that was a bad month”. Without rules fixed in advance, no result can ever count against a strategy.</p></div>
     </div>
   </section>
 
   <section id="how">
-    <h2>How it works</h2>
+    <h2>The idea in four steps</h2>
     <p class="sub">Borrowed from medicine, where trials are registered before they start so that nobody can bury the bad results.</p>
     <div class="grid">
-      <div class="card"><div class="step">1 · Register</div><h3>Fix the rules first</h3><p>Strategy, markets, account and the pass rule — for example “50 independent trades, positive average, at least 2 standard errors above zero”. Timestamped on the Bitcoin blockchain.</p></div>
-      <div class="card"><div class="step">2 · Noise test</div><h3>Beat random data</h3><p>Optional: we run your strategy on the same prices shuffled into random order. If it looks just as good there, the backtest proves nothing.</p></div>
-      <div class="card"><div class="step">3 · Measure</div><h3>Real trades only</h3><p>Read-only connection to your broker (MetaTrader, Capital.com, OANDA). Trades on the same day, direction and asset class count as one bet.</p></div>
-      <div class="card"><div class="step">4 · Verdict</div><h3>Public, either way</h3><p>Passed or failed, by the rule you set. Early stops only for clear losses, never for lucky streaks. Every entry stays in the registry.</p></div>
+      <div class="card"><div class="step">1 · Register</div><h3>Fix the rules first</h3><p>Strategy, markets and the pass rule (for example “50 independent trades, positive average, at least 2 standard errors above zero”), written down and timestamped before trading starts.</p></div>
+      <div class="card"><div class="step">2 · Noise test</div><h3>Beat random data</h3><p>Run the same strategy search on the same prices shuffled into random order. If it looks just as good there, the backtest proves nothing.</p></div>
+      <div class="card"><div class="step">3 · Measure</div><h3>Real trades only</h3><p>Count only trades that actually happened. Trades on the same day, in the same direction and asset class count as one bet.</p></div>
+      <div class="card"><div class="step">4 · Verdict</div><h3>Public, either way</h3><p>Passed or failed, by the rule set in advance. Early stops only for clear losses, never for lucky streaks.</p></div>
     </div>
   </section>
 
   <section id="story">
     <div class="story">
       <div>
-        <h2>We built this because our own bot fooled us</h2>
-        <p class="sub" style="margin-bottom:14px">We bred trading strategies for 12,000 generations — millions of them —
+        <h2>Why: our own bot fooled us</h2>
+        <p class="sub" style="margin-bottom:14px">We bred trading strategies for 12,000 generations, millions of them,
           on seven years of prices. The best ones looked spectacular in the backtest.</p>
         <p style="color:var(--ink-2)">Then we ran the same search on the same prices in random order, where no strategy
           can possibly have an edge. It found strategies that looked just as good. Our backtests had been measuring luck.</p>
         <p style="color:var(--ink-2)">So we froze 201 strategies and fixed the rules for judging them before a single
-          trade, and we tested a textbook trend-following strategy the same way: the trend was real, but on CFDs the
-          overnight fees ate all of it. None of that would have shown up in a backtest screenshot.</p>
-        <p style="color:var(--ink-2)">Our own experiment will be entry #1 in the registry — whatever its verdict.</p>
+          trade. They now trade on a demo account with play money until 12 December 2026. We also tested a textbook
+          trend-following strategy the same way: the trend was real, but on CFDs the overnight fees ate all of it.</p>
+        <p style="color:var(--ink-2)">We plan to publish the verdict of our own test here, whatever it is.</p>
       </div>
       <div class="stats">
         <div class="card"><div class="stat">12,000</div><p>generations of evolved strategies</p></div>
@@ -111,85 +114,41 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
   </section>
 
   <section id="compare">
-    <h2>Why not just a verified account?</h2>
+    <h2>How it would differ from a verified account</h2>
     <p class="sub">Account verification proves the trades are real. It cannot prove they are more than luck.</p>
+    <div class="table-scroll">
     <table>
-      <tr><th></th><th>Verified account (e.g. Myfxbook)</th><th>Robustness tools (e.g. StrategyQuant, Build Alpha)</th><th>Edge Registry</th></tr>
+      <tr><th></th><th>Verified account (e.g. Myfxbook)</th><th>Robustness tools (e.g. StrategyQuant, Build Alpha)</th><th>Edge Registry idea</th></tr>
       <tr><td>Trades are real</td><td class="yes">Yes</td><td class="no">—</td><td class="yes">Yes</td></tr>
       <tr><td>Rules fixed before the results</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes, timestamped</td></tr>
       <tr><td>Tested against random data</td><td class="no">No</td><td class="yes">For the developer</td><td class="yes">Yes, public</td></tr>
       <tr><td>Failures stay visible</td><td class="no">Accounts can be hidden</td><td class="no">—</td><td class="yes">Always</td></tr>
       <tr><td>Correlated trades counted once</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
     </table>
-  </section>
-
-  <section id="who">
-    <h2>Who it is for</h2>
-    <div class="grid">
-      <div class="card"><h3>Honest strategy sellers</h3><p>A verdict that scammers cannot copy. Stand out in a market full of screenshots.</p></div>
-      <div class="card"><h3>Prop firms & allocators</h3><p>Screen strategies before you fund them — with rules the trader cannot bend afterwards.</p></div>
-      <div class="card"><h3>Buyers</h3><p>Look up any registered strategy for free before you pay for it.</p></div>
     </div>
   </section>
 
-  <section id="waitlist">
-    <h2>Join the waitlist</h2>
-    <p class="sub">We are opening the registry to a small first group. Tell us who you are — it decides what we build first.</p>
-    <form id="waitlist-form">
-      <input type="email" name="email" placeholder="you@example.com" required aria-label="E-mail">
-      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
-      <select name="role" aria-label="I am">
-        <option>I sell a strategy, EA or signals</option>
-        <option>I run a prop firm or allocate capital</option>
-        <option>I want to check strategies before buying</option>
-        <option>I trade my own strategies</option>
-      </select>
-      <button class="btn primary" type="submit">Join</button>
-    </form>
-    <div id="thanks">Thanks! You are on the list.</div>
-    <div id="failed" style="display:none;color:var(--bad);font-weight:600;margin-top:10px">That did not go through. Please try again in a minute.</div>
-    <p class="fine">We only use your e-mail to tell you when the registry opens. No newsletter, no sharing. Unsubscribe any time.
-      By joining you agree to our <a href="privacy.html" style="color:inherit">privacy policy</a>.</p>
-    <script>
-    // FormSubmit forwards each sign-up by e-mail. FORM_ENDPOINT is the alias FormSubmit sends after activation.
-    const FORM_ENDPOINT = "https://formsubmit.co/ajax/{{FORM_ALIAS}}";
-    document.getElementById("waitlist-form").addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const form = e.target, button = form.querySelector("button");
-      const data = Object.fromEntries(new FormData(form));
-      if (data._honey) return;
-      button.disabled = true;
-      document.getElementById("failed").style.display = "none";
-      try {
-        const r = await fetch(FORM_ENDPOINT, {
-          method: "POST",
-          headers: { "Content-Type": "application/json", "Accept": "application/json" },
-          body: JSON.stringify({ ...data, _subject: "Edge Registry waitlist", _template: "table" }),
-        });
-        if (!r.ok) throw new Error(r.status);
-        document.getElementById("thanks").style.display = "block";
-        form.reset();
-      } catch {
-        document.getElementById("failed").style.display = "block";
-      } finally {
-        button.disabled = false;
-      }
-    });
-    </script>
+  <section id="follow">
+    <h2>Follow the test</h2>
+    <p class="sub">Our Discord is where the test happens in the open: progress of the frozen experiment, weekly status
+      posts from our Discord bot, and room to tell us whether an idea like this would be useful to you.</p>
+    <div class="cta" style="margin-top:0"><a class="btn primary" href="https://discord.gg/5SP2NxRrAW" rel="noopener">Join the Discord</a></div>
+    <p class="fine">Joining is optional and happens on Discord under Discord's own terms. This page itself has no forms,
+      no cookies and no analytics. The trading bot's code is not public, and the bot is not offered for download or sale.</p>
   </section>
 
   <section id="faq">
     <h2>Questions</h2>
-    <details><summary>Do I have to share my strategy's code?</summary><p>No. The registry only needs the rules you commit to and read-only access to the account. The noise test is optional and needs the code or the strategy's signals.</p></details>
-    <details><summary>Is a passed verdict a guarantee of future profit?</summary><p>No. It is evidence that a strategy did better than chance under rules fixed in advance. Markets change; past results never guarantee future ones.</p></details>
-    <details><summary>Is this financial advice?</summary><p>No. We do not recommend, sell or trade any strategy. We measure and publish.</p></details>
-    <details><summary>What does it cost?</summary><p>Looking up the registry is free. Pricing for registering strategies will be set with the first users on the waitlist.</p></details>
+    <details><summary>Is this a product I can buy?</summary><p>No. It is a test project. Nothing is sold or offered here.</p></details>
+    <details><summary>Is the code available?</summary><p>No. The bot and the testing tools stay private. We share the method and the results, not the code.</p></details>
+    <details><summary>Will the bot make me money?</summary><p>Nothing here promises any profit. Our own backtests turned out to be luck, which is the reason this project exists. Even a passed test would only be evidence of better-than-chance results under rules fixed in advance, not a guarantee.</p></details>
+    <details><summary>Is this financial advice?</summary><p>No. We do not recommend any strategy, broker or trade.</p></details>
   </section>
 
   <footer>
-    Edge Registry · Not financial advice. Trading CFDs and futures involves a high risk of losing money.
-    Past results, verified or not, do not guarantee future results.<br>
-    <a href="imprint.html" style="color:inherit">Legal notice</a> · <a href="privacy.html" style="color:inherit">Privacy</a>
+    Edge Registry is a private test project, for testing and information only. Not financial advice, not an offer,
+    no promise of profit. Trading CFDs and futures involves a high risk of losing money; past results do not guarantee
+    future results. This page collects no personal data. Hosted on GitHub Pages.
   </footer>
 </div>
 </body>
