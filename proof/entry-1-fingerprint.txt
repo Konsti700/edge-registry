@@ -1,0 +1,8 @@
+Edge Registry entry #1 - pre-registration fingerprint
+SHA-256: 4b2a41b06fe4615331e0ca2f17bf5f54db78bddd2dbf302612cafd973e8d2a35
+
+This is the SHA-256 hash of the frozen experiment as it stood at its start on 2026-10-17:
+version, start date, deadline, the seven rules (original German wording) and all 201 strategies,
+serialized as canonical JSON (sorted keys, no spaces, UTF-8).
+The strategies stay private; the file can be revealed after the verdict so anyone can recompute this hash.
+Note: the experiment started on 2026-10-17; this timestamp was added on 2026-10-20.

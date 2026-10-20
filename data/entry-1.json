@@ -1,0 +1,75 @@
+{
+ "entry": 1,
+ "name": "Our own evolved strategies (frozen cohort)",
+ "status": "running",
+ "started": "2026-10-17",
+ "deadline": "2026-12-12",
+ "strategies": 201,
+ "min_events": 50,
+ "pass_t": 2.2,
+ "rules": [
+  "Hypothesis: at least one strategy family has a positive expected value after costs. Favourite named in advance: mean reversion (RSI).",
+  "Only trades of the frozen cohort opened after the start date count.",
+  "Trades on the same day, in the same direction and in the same asset class count as one event.",
+  "One verdict at 50 events: passed if the average is above 0 R and t >= 2.2.",
+  "Early stop only for losses: from 20 events at t <= -2.5, or at a total of -15 R.",
+  "After 8 weeks every undecided family counts as failed.",
+  "Rules and cohort are not changed during the experiment."
+ ],
+ "fingerprint": "4b2a41b06fe4615331e0ca2f17bf5f54db78bddd2dbf302612cafd973e8d2a35",
+ "families": [
+  {
+   "name": "Mean reversion (favourite)",
+   "strategies": 71,
+   "status": "running",
+   "events": 0,
+   "avg_r": 0.0,
+   "total_r": 0,
+   "t": 0.0,
+   "reason": ""
+  },
+  {
+   "name": "Trend (control)",
+   "strategies": 64,
+   "status": "running",
+   "events": 0,
+   "avg_r": 0.0,
+   "total_r": 0,
+   "t": 0.0,
+   "reason": ""
+  },
+  {
+   "name": "Breakout (control)",
+   "strategies": 66,
+   "status": "running",
+   "events": 1,
+   "avg_r": -0.997,
+   "total_r": -1.0,
+   "t": 0.0,
+   "reason": ""
+  }
+ ],
+ "updated": "2026-10-20 13:41 UTC",
+ "noise_test": {
+  "generations": 1500,
+  "top": 24,
+  "arms": [
+   {
+    "name": "Real prices",
+    "holdout_median_pct": 15.4,
+    "holdout_positive_pct": 71
+   },
+   {
+    "name": "Shuffled prices 1",
+    "holdout_median_pct": 5.5,
+    "holdout_positive_pct": 62
+   },
+   {
+    "name": "Shuffled prices 2",
+    "holdout_median_pct": 145.7,
+    "holdout_positive_pct": 96
+   }
+  ],
+  "fitness_ratio": 0.84
+ }
+}
