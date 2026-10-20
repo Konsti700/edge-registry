@@ -50,13 +50,33 @@ td.yes { color: var(--good); font-weight: 600; } td.no { color: var(--muted); }
 details { border-bottom: 1px solid var(--line); padding: 14px 0; } summary { cursor: pointer; font-weight: 600; }
 details p { color: var(--ink-2); margin: 10px 0 0; }
 footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+.card .check { color: var(--good); font-weight: 700; font-size: 14px; letter-spacing: .4px; }
+.live { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+.meta { display: flex; gap: 22px; flex-wrap: wrap; color: var(--ink-2); font-size: 15px; margin-bottom: 18px; }
+.meta b { color: var(--ink); }
+.fam { margin-bottom: 16px; } .fam:last-child { margin-bottom: 0; }
+.fam-head { display: flex; justify-content: space-between; gap: 10px; font-size: 15px; }
+.fam-head span { color: var(--muted); }
+.track { height: 8px; border-radius: 4px; background: var(--line); margin-top: 6px; overflow: hidden; }
+.fill { height: 100%; border-radius: 4px; background: var(--accent); }
+.pill { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--line); color: var(--ink-2); }
+.pill.passed { color: var(--good); border-color: var(--good); } .pill.failed { color: var(--bad); border-color: var(--bad); }
+ol.rules { margin: 0; padding-left: 20px; color: var(--ink-2); font-size: 15px; } ol.rules li { margin-bottom: 6px; }
+code.fp { display: block; word-break: break-all; font-size: 13px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--ink); margin: 8px 0; }
+.bars { display: grid; gap: 14px; margin-top: 6px; }
+.bar-row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 12px; align-items: center; font-size: 15px; }
+.bar-row .track { height: 14px; margin: 0; background: transparent; }
+#noise .fine { margin-top: 18px; }
+.bar-row .fill.noise { background: var(--muted); }
+.bar-row .val { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+@media (max-width: 520px) { .bar-row { grid-template-columns: 1fr 64px; } .bar-row .track { grid-column: 1 / -1; grid-row: 2; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <div class="logo">Edge<span>Registry</span></div>
-    <nav><a href="#how">The idea</a><a href="#story">Our story</a><a href="#compare">Compared</a><a href="#follow">Follow the test</a></nav>
+    <nav><a href="#proof">What we can show</a><a href="#entry">Live status</a><a href="#how">The idea</a><a href="#story">Our story</a><a href="#follow">Follow the test</a></nav>
   </header>
 
   <div class="notice"><b>Test project.</b> This is an idea we are testing, not a product. Nothing is sold, no code is
@@ -70,6 +90,17 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
       staying public even when it fails. We are trying it on our own trading bot first.</p>
     <div class="cta"><a class="btn primary" href="#follow">Follow the test</a><a class="btn" href="#story">Read why</a></div>
   </div>
+
+  <section id="proof">
+    <h2>What we can already show</h2>
+    <p class="sub">No promises — just things you can check yourself on this page.</p>
+    <div class="grid">
+      <div class="card"><div class="check">✓ CHECKABLE</div><h3>Rules locked in advance</h3><p>Seven rules and 201 strategies, frozen before the first trade. Their fingerprint is timestamped on the Bitcoin blockchain, so nothing can be changed afterwards without it showing.</p></div>
+      <div class="card"><div class="check">✓ WORKING</div><h3>The method caught what a backtest hides</h3><p>Our noise test exposed our own best backtests as luck, before they could be sold to anyone as an edge.</p></div>
+      <div class="card"><div class="check">✓ SAFE</div><h3>No real money at stake</h3><p>The test runs on a demo account with play money. Our real-money bot stays locked unless the test passes.</p></div>
+      <div class="card"><div class="check">✓ PUBLIC</div><h3>Updated every day, failure included</h3><p>The live status below comes straight from the running experiment. If it fails, it stays here as a failure.</p></div>
+    </div>
+  </section>
 
   <section id="problem">
     <h2>The problem with trading track records</h2>
@@ -89,6 +120,38 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
       <div class="card"><div class="step">2 · Noise test</div><h3>Beat random data</h3><p>Run the same strategy search on the same prices shuffled into random order. If it looks just as good there, the backtest proves nothing.</p></div>
       <div class="card"><div class="step">3 · Measure</div><h3>Real trades only</h3><p>Count only trades that actually happened. Trades on the same day, in the same direction and asset class count as one bet.</p></div>
       <div class="card"><div class="step">4 · Verdict</div><h3>Public, either way</h3><p>Passed or failed, by the rule set in advance. Early stops only for clear losses, never for lucky streaks.</p></div>
+    </div>
+  </section>
+
+  <section id="entry">
+    <h2>Entry #1, live: our own strategies</h2>
+    <p class="sub">The registry idea, applied to ourselves first. Each strategy family needs 50 independent events to get
+      a verdict, and only the rules below decide it.</p>
+    <div class="meta" id="entry-meta">Loading the live status…</div>
+    <div class="live">
+      <div class="card"><h3>Progress to a verdict</h3><div id="families"><p>Loading…</p></div></div>
+      <div class="card"><h3>The seven rules, fixed on day one</h3><ol class="rules" id="rules"><li>Loading…</li></ol></div>
+      <div class="card"><h3>Proof that nothing changed</h3>
+        <p>SHA-256 fingerprint of the frozen rules and all 201 strategies:</p>
+        <code class="fp" id="fp">…</code>
+        <p>Timestamped with <a href="https://opentimestamps.org" rel="noopener" style="color:var(--accent)">OpenTimestamps</a>
+          on the Bitcoin blockchain: <a href="proof/entry-1-fingerprint.txt" style="color:var(--accent)">fingerprint file</a> ·
+          <a href="proof/entry-1-fingerprint.txt.ots" style="color:var(--accent)">proof (.ots)</a>.
+          Drop both files on opentimestamps.org to verify. The strategies themselves stay private and can be revealed
+          after the verdict, so anyone can recompute the fingerprint. In fairness: the experiment started on
+          17 October 2026, the timestamp was added on 20 October.</p></div>
+    </div>
+  </section>
+
+  <section id="noise">
+    <h2>The noise test, finished</h2>
+    <p class="sub" id="noise-sub">The same strategy search, run on real prices and on the same prices shuffled into
+      random order. Shown: the median result of the top strategies on recent data none of them had ever seen.</p>
+    <div class="card">
+      <div class="bars" id="bars"><p>Loading…</p></div>
+      <p class="fine" id="noise-note">Real prices came out positive, but one run on shuffled prices, where no edge can
+        exist, did almost ten times better. So a good backtest from this search proves nothing. That is exactly the kind of result a
+        screenshot hides and the registry makes public.</p>
     </div>
   </section>
 
@@ -144,6 +207,37 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
     <details><summary>Will the bot make me money?</summary><p>Nothing here promises any profit. Our own backtests turned out to be luck, which is the reason this project exists. Even a passed test would only be evidence of better-than-chance results under rules fixed in advance, not a guarantee.</p></details>
     <details><summary>Is this financial advice?</summary><p>No. We do not recommend any strategy, broker or trade.</p></details>
   </section>
+
+  <script>
+  // Live status of entry #1, written daily by the server (aggregate numbers only)
+  const el = (id) => document.getElementById(id);
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+  const longDate = (iso) => new Date(iso + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  fetch("data/entry-1.json", { cache: "no-cache" }).then((r) => r.json()).then((d) => {
+    const left = Math.max(0, Math.ceil((new Date(d.deadline + "T12:00:00Z") - Date.now()) / 86400000));
+    el("entry-meta").innerHTML = `<span>Status: <b>${esc(d.status)}</b></span><span>Started: <b>${longDate(d.started)}</b></span>` +
+      `<span>Verdict by: <b>${longDate(d.deadline)}</b> (${left} days left)</span><span>Strategies: <b>${d.strategies}</b></span>` +
+      `<span>Last change: <b>${esc(d.updated)}</b></span>`;
+    el("families").innerHTML = d.families.map((f) => {
+      const pct = Math.min(100, (f.events / d.min_events) * 100);
+      const avg = f.events ? ` · avg ${f.avg_r >= 0 ? "+" : ""}${f.avg_r.toFixed(2)} R` : "";
+      return `<div class="fam"><div class="fam-head"><b>${esc(f.name)}</b><span class="pill ${esc(f.status)}">${esc(f.status)}</span></div>` +
+        `<div class="track" title="${f.events} of ${d.min_events} events"><div class="fill" style="width:${pct}%"></div></div>` +
+        `<div class="fam-head" style="margin-top:4px"><span>${f.events} / ${d.min_events} events${avg}</span><span>${f.strategies} strategies</span></div></div>`;
+    }).join("");
+    el("rules").innerHTML = d.rules.map((r) => `<li>${esc(r)}</li>`).join("");
+    el("fp").textContent = d.fingerprint;
+    const n = d.noise_test;
+    if (n) {
+      el("noise-sub").textContent = `The same strategy search (${n.generations.toLocaleString("en")} generations), run on real prices and on the same prices shuffled into random order. Shown: the median result of the top ${n.top} strategies on recent data none of them had ever seen.`;
+      const max = Math.max(...n.arms.map((a) => Math.abs(a.holdout_median_pct)));
+      el("bars").innerHTML = n.arms.map((a, i) =>
+        `<div class="bar-row" title="${esc(a.name)}: ${a.holdout_median_pct}% median, ${a.holdout_positive_pct}% of top strategies positive">` +
+        `<b>${esc(a.name)}</b><div class="track"><div class="fill ${i ? "noise" : ""}" style="width:${Math.max(1, Math.abs(a.holdout_median_pct) / max * 100)}%"></div></div>` +
+        `<span class="val">${a.holdout_median_pct >= 0 ? "+" : ""}${a.holdout_median_pct}%</span></div>`).join("");
+    }
+  }).catch(() => { el("entry-meta").textContent = "The live status could not be loaded right now."; });
+  </script>
 
   <footer>
     Edge Registry is a private test project, for testing and information only. Not financial advice, not an offer,
