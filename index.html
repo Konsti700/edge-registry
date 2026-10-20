@@ -59,7 +59,7 @@ footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-to
 .fam-head span { color: var(--muted); }
 .track { height: 8px; border-radius: 4px; background: var(--line); margin-top: 6px; overflow: hidden; }
 .fill { height: 100%; border-radius: 4px; background: var(--accent); }
-.pill { display: inline-block; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--line); color: var(--ink-2); }
+.pill { display: inline-block; white-space: nowrap; padding: 2px 9px; border-radius: 99px; font-size: 12.5px; font-weight: 600; border: 1px solid var(--line); color: var(--ink-2); }
 .pill.passed { color: var(--good); border-color: var(--good); } .pill.failed { color: var(--bad); border-color: var(--bad); }
 ol.rules { margin: 0; padding-left: 20px; color: var(--ink-2); font-size: 15px; } ol.rules li { margin-bottom: 6px; }
 code.fp { display: block; word-break: break-all; font-size: 13px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; color: var(--ink); margin: 8px 0; }
@@ -76,29 +76,29 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
 <div class="wrap">
   <header>
     <div class="logo">Edge<span>Registry</span></div>
-    <nav><a href="#proof">What we can show</a><a href="#entry">Live status</a><a href="#how">The idea</a><a href="#story">Our story</a><a href="#follow">Follow the test</a></nav>
+    <nav><a href="#proof">What you can check</a><a href="#entry">Entry #1</a><a href="#noise">Noise test</a><a href="#check">Check it yourself</a><a href="#follow">Discord</a></nav>
   </header>
 
-  <div class="notice"><b>Test project.</b> This is an idea we are testing, not a product. Nothing is sold, no code is
-    released, this page collects no data, and nothing here promises any profit.</div>
+  <div class="notice"><b>Test project.</b> An idea we are testing, not a product. Nothing is sold, no code is released,
+    we collect no data, and nothing here promises any profit.</div>
 
   <div class="hero">
     <div class="eyebrow">An idea in testing</div>
     <h1>Anyone can show a great backtest.<br>Few can show they fixed the rules first.</h1>
     <p class="lead">Edge Registry is an idea for a public register of trading strategies: the rules are fixed before the
-      results exist, the strategy is tested against random data, and it is judged on real trades, with the verdict
-      staying public even when it fails. We are trying it on our own trading bot first.</p>
-    <div class="cta"><a class="btn primary" href="#follow">Follow the test</a><a class="btn" href="#story">Read why</a></div>
+      results exist, the strategy is tested against shuffled prices, and it is judged on forward trades, with the verdict
+      staying public even when it fails. We are trying it on our own strategies first, on a demo account.</p>
+    <div class="cta"><a class="btn primary" href="#entry">See entry #1</a><a class="btn" href="#check">Check it yourself</a></div>
   </div>
 
   <section id="proof">
-    <h2>What we can already show</h2>
-    <p class="sub">No promises — just things you can check yourself on this page.</p>
+    <h2>What you can check today</h2>
+    <p class="sub">Not promises: things anyone can verify, and what we tell you up front.</p>
     <div class="grid">
-      <div class="card"><div class="check">✓ CHECKABLE</div><h3>Rules locked in advance</h3><p>Seven rules and 201 strategies, frozen before the first trade. Their fingerprint is timestamped on the Bitcoin blockchain, so nothing can be changed afterwards without it showing.</p></div>
-      <div class="card"><div class="check">✓ WORKING</div><h3>The method caught what a backtest hides</h3><p>Our noise test exposed our own best backtests as luck, before they could be sold to anyone as an edge.</p></div>
-      <div class="card"><div class="check">✓ SAFE</div><h3>No real money at stake</h3><p>The test runs on a demo account with play money. Our real-money bot stays locked unless the test passes.</p></div>
-      <div class="card"><div class="check">✓ PUBLIC</div><h3>Updated every day, failure included</h3><p>The live status below comes straight from the running experiment. If it fails, it stays here as a failure.</p></div>
+      <div class="card"><div class="check">✓ VERIFIABLE</div><h3>Rules on the record</h3><p>Seven rules and a fingerprint of all 201 strategies, timestamped on the Bitcoin blockchain. From 20 October 2026 on, any change would break the fingerprint.</p></div>
+      <div class="card"><div class="check">✓ DEMONSTRATED</div><h3>The noise test does its job</h3><p>It showed that our own best backtests could not be told apart from results on shuffled prices, before we put any trust in them.</p></div>
+      <div class="card"><div class="check">✓ DISCLOSED</div><h3>Honest about the odds</h3><p>Our own entry will most likely fail. We say so now, before the verdict, and run it to the end anyway.</p></div>
+      <div class="card"><div class="check">✓ PUBLIC</div><h3>Every number, every day</h3><p>Event counts, results and stop lines update daily, the bad ones included. Each update is a public commit.</p></div>
     </div>
   </section>
 
@@ -116,20 +116,23 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
     <h2>The idea in four steps</h2>
     <p class="sub">Borrowed from medicine, where trials are registered before they start so that nobody can bury the bad results.</p>
     <div class="grid">
-      <div class="card"><div class="step">1 · Register</div><h3>Fix the rules first</h3><p>Strategy, markets and the pass rule (for example “50 independent trades, positive average, at least 2 standard errors above zero”), written down and timestamped before trading starts.</p></div>
-      <div class="card"><div class="step">2 · Noise test</div><h3>Beat random data</h3><p>Run the same strategy search on the same prices shuffled into random order. If it looks just as good there, the backtest proves nothing.</p></div>
-      <div class="card"><div class="step">3 · Measure</div><h3>Real trades only</h3><p>Count only trades that actually happened. Trades on the same day, in the same direction and asset class count as one bet.</p></div>
-      <div class="card"><div class="step">4 · Verdict</div><h3>Public, either way</h3><p>Passed or failed, by the rule set in advance. Early stops only for clear losses, never for lucky streaks.</p></div>
+      <div class="card"><div class="step">1 · Register</div><h3>Fix the rules first</h3><p>Strategy, markets and the pass rule (for example “50 independent events, positive average, t of at least 2.2”), written down and timestamped before trading starts.</p></div>
+      <div class="card"><div class="step">2 · Noise test</div><h3>Beat shuffled prices</h3><p>Run the same strategy search on the same prices in random order. If it looks just as good there, the backtest proves nothing.</p></div>
+      <div class="card"><div class="step">3 · Measure</div><h3>Forward trades only</h3><p>Count only trades opened after registration. Trades on the same day, in the same direction and asset class count as one event.</p></div>
+      <div class="card"><div class="step">4 · Verdict</div><h3>Public, either way</h3><p>Passed or failed, by the rule set in advance. Early stops only for clear losses, never for lucky streaks. No verdict by the deadline counts as failed.</p></div>
     </div>
   </section>
 
   <section id="entry">
     <h2>Entry #1, live: our own strategies</h2>
-    <p class="sub">The registry idea, applied to ourselves first. Each strategy family needs 50 independent events to get
-      a verdict, and only the rules below decide it.</p>
+    <p class="sub">The registry idea, applied to ourselves first: 201 evolved strategies in three families, trading on a demo
+      account with play money. Only the seven rules below decide the verdict.</p>
     <div class="meta" id="entry-meta">Loading the live status…</div>
     <div class="live">
-      <div class="card"><h3>Progress to a verdict</h3><div id="families"><p>Loading…</p></div></div>
+      <div class="card"><h3>Progress</h3><div id="timeline"><p>Loading…</p></div><div id="families"></div>
+        <p class="fine">How to read this: below 20 events an average is mostly luck. From 20 events on, the t-value and the
+          distance to both stop lines are shown, because that is when the first rule can act. (Display note added on
+          20 October 2026; the rules themselves are unchanged.)</p></div>
       <div class="card"><h3>The seven rules, fixed on day one</h3><ol class="rules" id="rules"><li>Loading…</li></ol></div>
       <div class="card"><h3>Proof that nothing changed</h3>
         <p>SHA-256 fingerprint of the frozen rules and all 201 strategies:</p>
@@ -137,21 +140,44 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
         <p>Timestamped with <a href="https://opentimestamps.org" rel="noopener" style="color:var(--accent)">OpenTimestamps</a>
           on the Bitcoin blockchain: <a href="proof/entry-1-fingerprint.txt" style="color:var(--accent)">fingerprint file</a> ·
           <a href="proof/entry-1-fingerprint.txt.ots" style="color:var(--accent)">proof (.ots)</a>.
-          Drop both files on opentimestamps.org to verify. The strategies themselves stay private and can be revealed
-          after the verdict, so anyone can recompute the fingerprint. In fairness: the experiment started on
-          17 October 2026, the timestamp was added on 20 October.</p></div>
+          It proves the rules and strategies have not changed since 20 October 2026. In fairness: the experiment started on
+          17 October, three days earlier. The strategies stay private for now; revealing the frozen file would let anyone
+          recompute the fingerprint.</p></div>
+      <div class="card"><h3>Honest outlook</h3><div id="outlook"><p>Loading…</p></div></div>
     </div>
   </section>
 
   <section id="noise">
     <h2>The noise test, finished</h2>
     <p class="sub" id="noise-sub">The same strategy search, run on real prices and on the same prices shuffled into
-      random order. Shown: the median result of the top strategies on recent data none of them had ever seen.</p>
-    <div class="card">
-      <div class="bars" id="bars"><p>Loading…</p></div>
-      <p class="fine" id="noise-note">Real prices came out positive, but one run on shuffled prices, where no edge can
-        exist, did almost ten times better. So a good backtest from this search proves nothing. That is exactly the kind of result a
-        screenshot hides and the registry makes public.</p>
+      random order. Shuffling keeps every price move but destroys their order, so any pattern a strategy could trade
+      on is gone; only the overall drift remains.</p>
+    <div class="live">
+      <div class="card"><h3>Backtest: what a screenshot would show</h3>
+        <p class="fine" style="margin-top:0">Median growth of the top strategies, compounded over all test periods at full
+          leverage. In-sample, so meaningless by design, which is the point.</p>
+        <div class="table-scroll"><table id="backtest" style="min-width:0"><tr><td>Loading…</td></tr></table></div>
+        <p class="fine">The search found far more “profit” in shuffled prices than in real ones.</p></div>
+      <div class="card"><h3>Unseen newest data</h3>
+        <p class="fine" style="margin-top:0">Median result of the top strategies on recent data none of them had seen.</p>
+        <div class="bars" id="bars"><p>Loading…</p></div>
+        <p class="fine">Real prices came out positive, but one shuffled run did almost ten times better. With two shuffled
+          runs this is not a precise measurement, but it is enough to say: a good backtest from this search is no evidence.</p></div>
+    </div>
+  </section>
+
+  <section id="check">
+    <h2>Check it yourself</h2>
+    <p class="sub">What we claim, how you can check it, and what you cannot check from outside yet.</p>
+    <div class="table-scroll">
+    <table>
+      <tr><th>Claim</th><th>How to check</th><th>Checkable</th></tr>
+      <tr><td>Rules and strategies unchanged since 20 Oct 2026</td><td>Drop the fingerprint file and its .ots proof on opentimestamps.org</td><td><span class="pill passed">now</span></td></tr>
+      <tr><td>The fingerprint really covers these 201 strategies</td><td>Recompute the SHA-256 of the frozen file</td><td><span class="pill">once revealed</span></td></tr>
+      <tr><td>Daily numbers are not edited afterwards</td><td>Every update is a public commit in this page's <a href="https://github.com/Konsti700/edge-registry/commits" rel="noopener" style="color:var(--accent)">GitHub history</a>; save a copy any day</td><td><span class="pill passed">now</span></td></tr>
+      <tr><td>The trades happened as reported</td><td>Not yet: the demo account is not linked to an independent verifier</td><td><span class="pill failed">not yet</span></td></tr>
+      <tr><td>The noise test was run as described</td><td>Method and numbers are here; the code stays private, so it cannot be rerun from outside</td><td><span class="pill failed">not yet</span></td></tr>
+    </table>
     </div>
   </section>
 
@@ -161,50 +187,36 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
         <h2>Why: our own bot fooled us</h2>
         <p class="sub" style="margin-bottom:14px">We bred trading strategies for 12,000 generations, millions of them,
           on seven years of prices. The best ones looked spectacular in the backtest.</p>
-        <p style="color:var(--ink-2)">Then we ran the same search on the same prices in random order, where no strategy
-          can possibly have an edge. It found strategies that looked just as good. Our backtests had been measuring luck.</p>
+        <p style="color:var(--ink-2)">Then we ran the same search on the same prices in random order, where the order of
+          prices carries no pattern. It found strategies that looked even better. Our backtests could not tell skill from luck.</p>
         <p style="color:var(--ink-2)">So we froze 201 strategies and fixed the rules for judging them before a single
           trade. They now trade on a demo account with play money until 12 December 2026. We also tested a textbook
           trend-following strategy the same way: the trend was real, but on CFDs the overnight fees ate all of it.</p>
-        <p style="color:var(--ink-2)">We plan to publish the verdict of our own test here, whatever it is.</p>
+        <p style="color:var(--ink-2)">We will publish the verdict of our own test here, whatever it is.</p>
       </div>
       <div class="stats">
         <div class="card"><div class="stat">12,000</div><p>generations of evolved strategies</p></div>
-        <div class="card"><div class="stat bad">≥ as good</div><p>strategies found in shuffled, edge-free prices</p></div>
+        <div class="card"><div class="stat bad">7–23×</div><p>more backtest “profit” found in shuffled prices than in real ones</p></div>
         <div class="card"><div class="stat good">201</div><p>strategies frozen, judged by rules fixed in advance</p></div>
       </div>
     </div>
   </section>
 
-  <section id="compare">
-    <h2>How it would differ from a verified account</h2>
-    <p class="sub">Account verification proves the trades are real. It cannot prove they are more than luck.</p>
-    <div class="table-scroll">
-    <table>
-      <tr><th></th><th>Verified account (e.g. Myfxbook)</th><th>Robustness tools (e.g. StrategyQuant, Build Alpha)</th><th>Edge Registry idea</th></tr>
-      <tr><td>Trades are real</td><td class="yes">Yes</td><td class="no">—</td><td class="yes">Yes</td></tr>
-      <tr><td>Rules fixed before the results</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes, timestamped</td></tr>
-      <tr><td>Tested against random data</td><td class="no">No</td><td class="yes">For the developer</td><td class="yes">Yes, public</td></tr>
-      <tr><td>Failures stay visible</td><td class="no">Accounts can be hidden</td><td class="no">—</td><td class="yes">Always</td></tr>
-      <tr><td>Correlated trades counted once</td><td class="no">No</td><td class="no">No</td><td class="yes">Yes</td></tr>
-    </table>
-    </div>
-  </section>
-
   <section id="follow">
     <h2>Follow the test</h2>
-    <p class="sub">Our Discord is where the test happens in the open: progress of the frozen experiment, weekly status
-      posts from our Discord bot, and room to tell us whether an idea like this would be useful to you.</p>
+    <p class="sub">Our Discord is where the test happens in the open: the experiment's numbers every Monday, posted by our
+      Discord bot, and room to tell us whether an idea like this would be useful to you.</p>
     <div class="cta" style="margin-top:0"><a class="btn primary" href="https://discord.gg/5SP2NxRrAW" rel="noopener">Join the Discord</a></div>
     <p class="fine">Joining is optional and happens on Discord under Discord's own terms. This page itself has no forms,
-      no cookies and no analytics. The trading bot's code is not public, and the bot is not offered for download or sale.</p>
+      no cookies and no analytics. The trading bot's code is not public.</p>
   </section>
 
   <section id="faq">
     <h2>Questions</h2>
     <details><summary>Is this a product I can buy?</summary><p>No. It is a test project. Nothing is sold or offered here.</p></details>
     <details><summary>Is the code available?</summary><p>No. The bot and the testing tools stay private. We share the method and the results, not the code.</p></details>
-    <details><summary>Will the bot make me money?</summary><p>Nothing here promises any profit. Our own backtests turned out to be luck, which is the reason this project exists. Even a passed test would only be evidence of better-than-chance results under rules fixed in advance, not a guarantee.</p></details>
+    <details><summary>Will the bot make me money?</summary><p>Nothing here promises any profit. Our own backtests could not be told apart from luck, which is the reason this project exists. Even a passed test would only be evidence of better-than-chance results under rules fixed in advance, not a guarantee.</p></details>
+    <details><summary>Are these real-money trades?</summary><p>No. Entry #1 trades on a demo account with play money.</p></details>
     <details><summary>Is this financial advice?</summary><p>No. We do not recommend any strategy, broker or trade.</p></details>
   </section>
 
@@ -213,28 +225,43 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
   const el = (id) => document.getElementById(id);
   const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
   const longDate = (iso) => new Date(iso + "T12:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+  const signed = (x, digits) => `${x >= 0 ? "+" : "−"}${Math.abs(x).toFixed(digits)}`;
   fetch("data/entry-1.json", { cache: "no-cache" }).then((r) => r.json()).then((d) => {
     const left = Math.max(0, Math.ceil((new Date(d.deadline + "T12:00:00Z") - Date.now()) / 86400000));
+    const total = Math.round((new Date(d.deadline + "T12:00:00Z") - new Date(d.started + "T12:00:00Z")) / 86400000);
+    const done = Math.min(total, total - left);
     el("entry-meta").innerHTML = `<span>Status: <b>${esc(d.status)}</b></span><span>Started: <b>${longDate(d.started)}</b></span>` +
-      `<span>Verdict by: <b>${longDate(d.deadline)}</b> (${left} days left)</span><span>Strategies: <b>${d.strategies}</b></span>` +
-      `<span>Last change: <b>${esc(d.updated)}</b></span>`;
+      `<span>Verdict by: <b>${longDate(d.deadline)}</b></span><span>Strategies: <b>${d.strategies}</b></span>` +
+      `<span>Checked: <b>${esc(d.updated)}</b></span>`;
+    el("timeline").innerHTML = `<div class="fam-head"><b>Day ${done} of ${total}</b><span>${left} days left</span></div>` +
+      `<div class="track" title="Day ${done} of ${total}"><div class="fill" style="width:${(done / total) * 100}%"></div></div>` +
+      `<div class="fam-head" style="margin:4px 0 18px"><span>${longDate(d.started)}</span><span>${longDate(d.deadline)}</span></div>`;
     el("families").innerHTML = d.families.map((f) => {
       const pct = Math.min(100, (f.events / d.min_events) * 100);
-      const avg = f.events ? ` · avg ${f.avg_r >= 0 ? "+" : ""}${f.avg_r.toFixed(2)} R` : "";
+      let detail = "no events yet";
+      if (f.events && f.events < d.stop_events) detail = `avg ${signed(f.avg_r, 2)} R · not meaningful below ${d.stop_events} events`;
+      if (f.events >= d.stop_events) detail = `avg ${signed(f.avg_r, 2)} R · t ${signed(f.t, 2)} (pass ≥ ${d.pass_t}, stop ≤ ${d.stop_t}) · ` +
+        `total ${signed(f.total_r, 1)} R (stop at ${d.stop_total_r} R)`;
       return `<div class="fam"><div class="fam-head"><b>${esc(f.name)}</b><span class="pill ${esc(f.status)}">${esc(f.status)}</span></div>` +
         `<div class="track" title="${f.events} of ${d.min_events} events"><div class="fill" style="width:${pct}%"></div></div>` +
-        `<div class="fam-head" style="margin-top:4px"><span>${f.events} / ${d.min_events} events${avg}</span><span>${f.strategies} strategies</span></div></div>`;
+        `<div class="fam-head" style="margin-top:4px"><span>${f.events} / ${d.min_events} events · ${detail}</span><span>${f.strategies} strategies</span></div></div>`;
     }).join("");
     el("rules").innerHTML = d.rules.map((r) => `<li>${esc(r)}</li>`).join("");
     el("fp").textContent = d.fingerprint;
+    const events = d.families.reduce((s, f) => s + f.events, 0);
+    el("outlook").innerHTML = `<p>So far <b>${events} independent event${events === 1 ? "" : "s"}</b> in ${done} days, ` +
+      `across all three families. Each family needs ${d.min_events} by ${longDate(d.deadline)}; without a verdict by then it counts as failed (rule 6).</p>` +
+      `<p>If trading stays this slow, entry #1 fails on time alone, and the noise test already pointed the same way. ` +
+      `We run it to the end anyway: a registry that only finishes the tests it expects to pass would be worthless.</p>`;
     const n = d.noise_test;
     if (n) {
-      el("noise-sub").textContent = `The same strategy search (${n.generations.toLocaleString("en")} generations), run on real prices and on the same prices shuffled into random order. Shown: the median result of the top ${n.top} strategies on recent data none of them had ever seen.`;
+      el("backtest").innerHTML = `<tr><th>Prices</th><th>1 € became</th></tr>` + n.arms.map((a) =>
+        `<tr><td>${esc(a.name)}</td><td style="font-variant-numeric:tabular-nums">${a.backtest_growth.toLocaleString("en")} €</td></tr>`).join("");
       const max = Math.max(...n.arms.map((a) => Math.abs(a.holdout_median_pct)));
       el("bars").innerHTML = n.arms.map((a, i) =>
         `<div class="bar-row" title="${esc(a.name)}: ${a.holdout_median_pct}% median, ${a.holdout_positive_pct}% of top strategies positive">` +
         `<b>${esc(a.name)}</b><div class="track"><div class="fill ${i ? "noise" : ""}" style="width:${Math.max(1, Math.abs(a.holdout_median_pct) / max * 100)}%"></div></div>` +
-        `<span class="val">${a.holdout_median_pct >= 0 ? "+" : ""}${a.holdout_median_pct}%</span></div>`).join("");
+        `<span class="val">${signed(a.holdout_median_pct, 1)}%</span></div>`).join("");
     }
   }).catch(() => { el("entry-meta").textContent = "The live status could not be loaded right now."; });
   </script>
@@ -242,7 +269,8 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
   <footer>
     Edge Registry is a private test project, for testing and information only. Not financial advice, not an offer,
     no promise of profit. Trading CFDs and futures involves a high risk of losing money; past results do not guarantee
-    future results. This page collects no personal data. Hosted on GitHub Pages.
+    future results. We collect no personal data. The page is hosted on GitHub Pages, which logs visits as described in
+    <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener" style="color:inherit">GitHub's privacy statement</a>.
   </footer>
 </div>
 </body>
