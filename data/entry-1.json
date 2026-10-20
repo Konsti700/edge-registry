@@ -7,6 +7,9 @@
  "strategies": 201,
  "min_events": 50,
  "pass_t": 2.2,
+ "stop_events": 20,
+ "stop_t": -2.5,
+ "stop_total_r": -15.0,
  "rules": [
   "Hypothesis: at least one strategy family has a positive expected value after costs. Favourite named in advance: mean reversion (RSI).",
   "Only trades of the frozen cohort opened after the start date count.",
@@ -32,9 +35,9 @@
    "name": "Trend (control)",
    "strategies": 64,
    "status": "running",
-   "events": 0,
-   "avg_r": 0.0,
-   "total_r": 0,
+   "events": 1,
+   "avg_r": -0.994,
+   "total_r": -0.99,
    "t": 0.0,
    "reason": ""
   },
@@ -49,7 +52,7 @@
    "reason": ""
   }
  ],
- "updated": "2026-10-20 13:41 UTC",
+ "updated": "2026-10-20 14:08 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
@@ -57,16 +60,19 @@
    {
     "name": "Real prices",
     "holdout_median_pct": 15.4,
+    "backtest_growth": 12408,
     "holdout_positive_pct": 71
    },
    {
     "name": "Shuffled prices 1",
     "holdout_median_pct": 5.5,
+    "backtest_growth": 93131,
     "holdout_positive_pct": 62
    },
    {
     "name": "Shuffled prices 2",
     "holdout_median_pct": 145.7,
+    "backtest_growth": 284278,
     "holdout_positive_pct": 96
    }
   ],
