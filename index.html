@@ -50,6 +50,13 @@ td.yes { color: var(--good); font-weight: 600; } td.no { color: var(--muted); }
 details { border-bottom: 1px solid var(--line); padding: 14px 0; } summary { cursor: pointer; font-weight: 600; }
 details p { color: var(--ink-2); margin: 10px 0 0; }
 footer { padding: 36px 0 60px; color: var(--muted); font-size: 13.5px; border-top: 1px solid var(--line); }
+.tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 14px 18px; margin: 14px 0 4px; }
+.tiles .stat { font-size: 26px; } .tiles p { font-size: 13.5px; margin: 2px 0 0; }
+ul.ups { margin: 10px 0 0; padding-left: 0; list-style: none; color: var(--ink-2); font-size: 15px; }
+ul.ups li { padding: 7px 0 7px 26px; border-top: 1px solid var(--line); position: relative; }
+ul.ups li:first-child { border-top: 0; }
+ul.ups li::before { content: "✓"; position: absolute; left: 4px; color: var(--good); font-weight: 700; }
+ul.ups b { color: var(--ink); }
 .card .check { color: var(--good); font-weight: 700; font-size: 14px; letter-spacing: .4px; }
 .live { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
 .meta { display: flex; gap: 22px; flex-wrap: wrap; color: var(--ink-2); font-size: 15px; margin-bottom: 18px; }
@@ -76,7 +83,7 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
 <div class="wrap">
   <header>
     <div class="logo">Edge<span>Registry</span></div>
-    <nav><a href="#proof">What you can check</a><a href="#entry">Entry #1</a><a href="#noise">Noise test</a><a href="#check">Check it yourself</a><a href="#follow">Discord</a></nav>
+    <nav><a href="#proof">What you can check</a><a href="#upgrade">Old bot → v2</a><a href="#entry">v2 live</a><a href="#noise">Noise test</a><a href="#check">Check it yourself</a><a href="#follow">Discord</a></nav>
   </header>
 
   <div class="notice"><b>Test project.</b> An idea we are testing, not a product. Nothing is sold, no code is released,
@@ -87,8 +94,8 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
     <h1>Anyone can show a great backtest.<br>Few can show they fixed the rules first.</h1>
     <p class="lead">Edge Registry is an idea for a public register of trading strategies: the rules are fixed before the
       results exist, the strategy is tested against shuffled prices, and it is judged on forward trades, with the verdict
-      staying public even when it fails. We are trying it on our own strategies first, on a demo account.</p>
-    <div class="cta"><a class="btn primary" href="#entry">See entry #1</a><a class="btn" href="#check">Check it yourself</a></div>
+      staying public even when it fails. We are trying it on our own bot first: v2 runs in the open, on a demo account.</p>
+    <div class="cta"><a class="btn primary" href="#upgrade">See the upgrade</a><a class="btn" href="#check">Check it yourself</a></div>
   </div>
 
   <section id="proof">
@@ -97,8 +104,36 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
     <div class="grid">
       <div class="card"><div class="check">✓ VERIFIABLE</div><h3>Rules on the record</h3><p>Seven rules and a fingerprint of all 201 strategies, timestamped on the Bitcoin blockchain. From 20 October 2026 on, any change would break the fingerprint.</p></div>
       <div class="card"><div class="check">✓ DEMONSTRATED</div><h3>The noise test does its job</h3><p>It showed that our own best backtests could not be told apart from results on shuffled prices, before we put any trust in them.</p></div>
-      <div class="card"><div class="check">✓ DISCLOSED</div><h3>Honest about the odds</h3><p>Our own entry will most likely fail. We say so now, before the verdict, and run it to the end anyway.</p></div>
+      <div class="card"><div class="check">✓ TESTED</div><h3>Risk control that holds</h3><p>In 113 demo trades of the old bot, no loss went beyond 1.05 R. Every stop held, and v2 keeps the same risk control.</p></div>
       <div class="card"><div class="check">✓ PUBLIC</div><h3>Every number, every day</h3><p>Event counts, results and stop lines update daily, the bad ones included. Each update is a public commit.</p></div>
+    </div>
+  </section>
+
+  <section id="upgrade">
+    <h2>From old bot to v2</h2>
+    <p class="sub">Our bot has been trading on a demo account with play money since 5 October 2026. The old bot made money.
+      v2 is built to find out whether that was skill.</p>
+    <div class="live">
+      <div class="card"><div class="step">OLD BOT · 5–17 OCTOBER 2026</div><h3>Profitable in play money</h3>
+        <div class="tiles">
+          <div><div class="stat good">+327 €</div><p>result of 113 demo trades</p></div>
+          <div><div class="stat">≤ 1.05 R</div><p>largest loss on any trade: every stop held</p></div>
+          <div><div class="stat good">+4.3 R</div><p>best single trade</p></div>
+          <div><div class="stat">0.005 %</div><p>average slippage over 122 demo fills</p></div>
+        </div>
+        <p class="fine">103 strategies on 34 markets. The catch: five trades made all the profit, and the average trade
+          came out at −0.06 R. With strategies swapped as results came in, the old bot could not tell skill from luck.</p></div>
+      <div class="card"><div class="step" style="color:var(--good)">V2 · SINCE 17 OCTOBER 2026</div><h3>Built to prove it</h3>
+        <ul class="ups">
+          <li><b>201 strategies frozen</b>, no swapping: what trades is what was registered</li>
+          <li><b>Rules fixed on day one</b>, fingerprint on the Bitcoin blockchain</li>
+          <li><b>Noise-tested</b> against shuffled prices before going live</li>
+          <li><b>Measured in R</b>, so a few big positions cannot hide a losing average</li>
+          <li><b>Correlated trades counted once</b>: same day, direction and asset class</li>
+          <li><b>Public every day</b>, with a pass line and stop lines set in advance</li>
+        </ul>
+        <p class="fine">Same risk control and execution as the old bot, now judged by rules it cannot bend.
+          <a href="#entry" style="color:var(--accent)">See v2 live</a>.</p></div>
     </div>
   </section>
 
@@ -124,9 +159,9 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
   </section>
 
   <section id="entry">
-    <h2>Entry #1, live: our own strategies</h2>
-    <p class="sub">The registry idea, applied to ourselves first: 201 evolved strategies in three families, trading on a demo
-      account with play money. Only the seven rules below decide the verdict.</p>
+    <h2>Entry #1, live: v2</h2>
+    <p class="sub">The registry idea, applied to our own bot first: v2 trades 201 evolved strategies in three families on a
+      demo account with play money. Only the seven rules below decide the verdict.</p>
     <div class="meta" id="entry-meta">Loading the live status…</div>
     <div class="live">
       <div class="card"><h3>Progress</h3><div id="timeline"><p>Loading…</p></div><div id="families"></div>
