@@ -104,7 +104,7 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
     <div class="grid">
       <div class="card"><div class="check">✓ VERIFIABLE</div><h3>Rules on the record</h3><p>Seven rules and a fingerprint of all 201 strategies, timestamped on the Bitcoin blockchain. From 20 October 2026 on, any change would break the fingerprint.</p></div>
       <div class="card"><div class="check">✓ DEMONSTRATED</div><h3>The noise test does its job</h3><p>It showed that our own best backtests could not be told apart from results on shuffled prices, before we put any trust in them.</p></div>
-      <div class="card"><div class="check">✓ TESTED</div><h3>Risk control that holds</h3><p>In 113 demo trades of the old bot, no loss went beyond 1.05 R. Every stop held, and v2 keeps the same risk control.</p></div>
+      <div class="card"><div class="check">✓ TESTED</div><h3>Risk control that holds</h3><p>In 113 demo trades of the old bot over 12 days, no loss went beyond 1.05 R. v2 keeps the same risk control.</p></div>
       <div class="card"><div class="check">✓ PUBLIC</div><h3>Every number, every day</h3><p>Event counts, results and stop lines update daily, the bad ones included. Each update is a public commit.</p></div>
     </div>
   </section>
@@ -117,7 +117,7 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
       <div class="card"><div class="step">OLD BOT · 5–17 OCTOBER 2026</div><h3>Profitable in play money</h3>
         <div class="tiles">
           <div><div class="stat good">+327 €</div><p>result of 113 demo trades</p></div>
-          <div><div class="stat">≤ 1.05 R</div><p>largest loss on any trade: every stop held</p></div>
+          <div><div class="stat">≤ 1.05 R</div><p>largest loss on any single trade</p></div>
           <div><div class="stat good">+4.3 R</div><p>best single trade</p></div>
           <div><div class="stat">0.005 %</div><p>average slippage over 122 demo fills</p></div>
         </div>
@@ -167,7 +167,13 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
       <div class="card"><h3>Progress</h3><div id="timeline"><p>Loading…</p></div><div id="families"></div>
         <p class="fine">How to read this: below 20 events an average is mostly luck. From 20 events on, the t-value and the
           distance to both stop lines are shown, because that is when the first rule can act. (Display note added on
-          20 October 2026; the rules themselves are unchanged.)</p></div>
+          20 October 2026; the rules themselves are unchanged.)</p>
+        <p class="fine"><b style="color:var(--ink-2)">Deviation log.</b> 17–20 October: 80 of the 201 strategies, the ones
+          that use a market-storm forecast, could not trade because the forecast's price feed stopped while our strategy
+          search was paused. Since 6 October, 4 markets (wheat, corn, soybeans, Solana) received no new prices, which kept
+          11 strategies from trading. Some signals were skipped for lack of margin. All fixed on 21 October: the feed runs
+          on its own, the cohort gets enough margin, and an AI news filter that was never part of the rules now only logs.
+          Rules and strategies are unchanged.</p></div>
       <div class="card"><h3>The seven rules, fixed on day one</h3><ol class="rules" id="rules"><li>Loading…</li></ol></div>
       <div class="card"><h3>Proof that nothing changed</h3>
         <p>SHA-256 fingerprint of the frozen rules and all 201 strategies:</p>
@@ -193,8 +199,10 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
           leverage. In-sample, so meaningless by design, which is the point.</p>
         <div class="table-scroll"><table id="backtest" style="min-width:0"><tr><td>Loading…</td></tr></table></div>
         <p class="fine">The search found far more “profit” in shuffled prices than in real ones.</p></div>
-      <div class="card"><h3>Unseen newest data</h3>
-        <p class="fine" style="margin-top:0">Median result of the top strategies on recent data none of them had seen.</p>
+      <div class="card"><h3>Newest data</h3>
+        <p class="fine" style="margin-top:0">Median result of the top strategies on the most recent period. In fairness,
+          the search used this period as a pass/fail check, so it is not fully unseen; both real and shuffled prices went
+          through the same search, which keeps the comparison fair.</p>
         <div class="bars" id="bars"><p>Loading…</p></div>
         <p class="fine">Real prices came out positive, but one shuffled run did almost ten times better. With two shuffled
           runs this is not a precise measurement, but it is enough to say: a good backtest from this search is no evidence.</p></div>
