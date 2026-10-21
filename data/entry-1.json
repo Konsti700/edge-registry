@@ -45,14 +45,14 @@
    "name": "Breakout (control)",
    "strategies": 66,
    "status": "running",
-   "events": 1,
-   "avg_r": -0.997,
-   "total_r": -1.0,
-   "t": 0.0,
+   "events": 2,
+   "avg_r": -0.503,
+   "total_r": -1.01,
+   "t": -1.02,
    "reason": ""
   }
  ],
- "updated": "2026-10-20 14:08 UTC",
+ "updated": "2026-10-21 05:00 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
