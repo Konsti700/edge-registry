@@ -25,20 +25,20 @@
    "name": "Mean reversion (favourite)",
    "strategies": 71,
    "status": "running",
-   "events": 4,
-   "avg_r": -1.005,
-   "total_r": -8.04,
-   "t": -390.1,
+   "events": 7,
+   "avg_r": -0.291,
+   "total_r": -7.07,
+   "t": -0.59,
    "reason": ""
   },
   {
    "name": "Trend (control)",
    "strategies": 64,
    "status": "running",
-   "events": 8,
-   "avg_r": -1.003,
-   "total_r": -12.02,
-   "t": -327.53,
+   "events": 10,
+   "avg_r": -0.614,
+   "total_r": -10.14,
+   "t": -1.91,
    "reason": ""
   },
   {
@@ -52,7 +52,7 @@
    "reason": ""
   }
  ],
- "updated": "2026-10-23 05:00 UTC",
+ "updated": "2026-10-24 05:00 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
