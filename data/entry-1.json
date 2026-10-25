@@ -25,10 +25,10 @@
    "name": "Mean reversion (favourite)",
    "strategies": 71,
    "status": "running",
-   "events": 7,
-   "avg_r": -0.291,
-   "total_r": -7.07,
-   "t": -0.59,
+   "events": 8,
+   "avg_r": -0.379,
+   "total_r": -8.06,
+   "t": -0.87,
    "reason": ""
   },
   {
@@ -45,14 +45,14 @@
    "name": "Breakout (control)",
    "strategies": 66,
    "status": "running",
-   "events": 10,
-   "avg_r": -0.526,
-   "total_r": -11.79,
-   "t": -2.32,
+   "events": 11,
+   "avg_r": -0.57,
+   "total_r": -13.81,
+   "t": -2.72,
    "reason": ""
   }
  ],
- "updated": "2026-10-24 05:00 UTC",
+ "updated": "2026-10-25 06:00 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
