@@ -1,7 +1,7 @@
 {
  "entry": 1,
  "name": "Our own evolved strategies (frozen cohort)",
- "status": "running",
+ "status": "failed",
  "started": "2026-10-17",
  "deadline": "2026-12-12",
  "strategies": 201,
@@ -24,21 +24,21 @@
   {
    "name": "Mean reversion (favourite)",
    "strategies": 71,
-   "status": "running",
-   "events": 17,
-   "avg_r": -0.217,
-   "total_r": -14.53,
-   "t": -0.8,
-   "reason": ""
+   "status": "failed",
+   "events": 18,
+   "avg_r": -0.261,
+   "total_r": -15.54,
+   "t": -1.0,
+   "reason": "Summe -15.5 R erreicht die Verlustgrenze von -15 R"
   },
   {
    "name": "Trend (control)",
    "strategies": 64,
    "status": "failed",
-   "events": 18,
-   "avg_r": -0.611,
-   "total_r": -17.96,
-   "t": -3.23,
+   "events": 20,
+   "avg_r": -0.546,
+   "total_r": -18.88,
+   "t": -2.85,
    "reason": "Summe -16.0 R erreicht die Verlustgrenze von -15 R"
   },
   {
@@ -46,13 +46,13 @@
    "strategies": 66,
    "status": "failed",
    "events": 13,
-   "avg_r": -0.641,
-   "total_r": -16.62,
-   "t": -4.81,
+   "avg_r": -0.599,
+   "total_r": -16.02,
+   "t": -4.61,
    "reason": "Summe -15.9 R erreicht die Verlustgrenze von -15 R"
   }
  ],
- "updated": "2026-10-30 06:00 UTC",
+ "updated": "2026-10-31 06:00 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
