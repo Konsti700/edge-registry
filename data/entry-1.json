@@ -35,10 +35,10 @@
    "name": "Trend (control)",
    "strategies": 64,
    "status": "failed",
-   "events": 20,
-   "avg_r": -0.546,
-   "total_r": -18.88,
-   "t": -2.85,
+   "events": 21,
+   "avg_r": -0.567,
+   "total_r": -19.88,
+   "t": -3.09,
    "reason": "Summe -16.0 R erreicht die Verlustgrenze von -15 R"
   },
   {
@@ -52,7 +52,7 @@
    "reason": "Summe -15.9 R erreicht die Verlustgrenze von -15 R"
   }
  ],
- "updated": "2026-11-02 06:00 UTC",
+ "updated": "2026-11-03 06:00 UTC",
  "noise_test": {
   "generations": 1500,
   "top": 24,
