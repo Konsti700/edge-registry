@@ -158,6 +158,30 @@ code.fp { display: block; word-break: break-all; font-size: 13px; background: va
     </div>
   </section>
 
+  <section id="entry2">
+    <h2>Entry #2, started 16 November 2026</h2>
+    <p class="sub">A learning experiment, with no promise of success. After entry #1 failed, entry #2 tests three simple,
+      well-known strategy types on a demo account with play money (10,000 €), on US500, US100, DE40 and gold. Before the
+      start, each one had to show a backtest gain of at least twice its trading costs; a fourth one did not and was left out.</p>
+    <div class="live">
+      <div class="card"><h3>The rules, fixed on day one</h3><ol class="rules">
+        <li>Risk 0.5 % of the account per trade, stop-loss at the broker, at most 4 open positions.</li>
+        <li>Runs 12 weeks, until 8 February 2027. No verdict by then counts as failed.</li>
+        <li>Verdict per strategy from 30 independent trades: passed if the average after costs is positive and t ≥ 2.</li>
+        <li>A strategy stops at −10 R in total. Early stops only for losses, never for lucky streaks.</li>
+        <li>No changes to rules or strategies during the run. Glitches go into a deviation log.</li>
+        <li>Every trade is compared with its backtest price; the gap is the second result.</li>
+        <li>Real money stays locked, even if a strategy passes.</li></ol></div>
+      <div class="card"><h3>Proof that nothing changes</h3>
+        <p>SHA-256 fingerprint of the frozen rules, strategies and trading code:</p>
+        <code class="fp">62776bc8008fe756021d1e132ce03c6030ddbf249de4f4e0e4ddd5507444acc5</code>
+        <p>Timestamped with <a href="https://opentimestamps.org" rel="noopener" style="color:var(--accent)">OpenTimestamps</a>:
+          <a href="proof/entry-2-fingerprint.txt" style="color:var(--accent)">fingerprint file</a> ·
+          <a href="proof/entry-2-fingerprint.txt.ots" style="color:var(--accent)">proof (.ots)</a>.
+          The frozen file is published here after the verdict, so anyone can recompute the fingerprint.</p></div>
+    </div>
+  </section>
+
   <section id="entry">
     <h2>Entry #1, live: v2</h2>
     <p class="sub">The registry idea, applied to our own bot first: v2 trades 201 evolved strategies in three families on a

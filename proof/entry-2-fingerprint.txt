@@ -1,0 +1,8 @@
+Edge Registry entry #2 - pre-registration fingerprint
+SHA-256: 62776bc8008fe756021d1e132ce03c6030ddbf249de4f4e0e4ddd5507444acc5
+
+This is the SHA-256 hash of the frozen experiment as it stood at its start (2026-11-16T07:24+00:00 UTC):
+version, start, deadline, account start, the eight rules (German wording), parameters, the SHA-256 of
+the trading code, and the three strategies with their backtests, serialized as canonical JSON
+(sorted keys, no spaces, UTF-8). Entry #2 is a learning experiment on a demo account with play money.
+The frozen file is published after the verdict so anyone can recompute this hash.
